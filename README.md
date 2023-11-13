@@ -10,4 +10,4 @@ Import Your Etrain Odyssey HD Save To Etrian Odyssey 2 HD For Steam Deck
 
 3.That's It
 
-If that hasn't worked right click the file and click "Run in Konsole" to see any error.
+Check the Debug.txt file if there are any issues.
