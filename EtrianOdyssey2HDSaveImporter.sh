@@ -1,8 +1,12 @@
 #!/bin/bash
 
+now=$(date)
+
 if test -d "/home/deck/.local/share/Steam/steamapps/compatdata/1868180/pfx/drive_c/users/steamuser/Application Data/SEGA/EOHD" &&  test -d "/home/deck/.local/share/Steam/steamapps/compatdata/1868170/pfx/drive_c/users/steamuser/Application Data/SEGA/EO2HD/"; then
-    echo "Etrian 1 & 2 Found Copying Save Data Over"
-    cp -r "/home/deck/.local/share/Steam/steamapps/compatdata/1868180/pfx/drive_c/users/steamuser/Application Data/SEGA/EOHD" "/home/deck/.local/share/Steam/steamapps/compatdata/1868170/pfx/drive_c/users/steamuser/Application Data/SEGA"
+    echo "$now Etrian 1 & 2 Found Copying Save Data Over" >> Debug.txt
+    cp -r "/home/deck/.local/share/Steam/steamapps/compatdata/1868180/pfx/drive_c/users/steamuser/Application Data/SEGA/EOHD" "/home/deck/.local/share/Steam/steamapps/compatdata/1868170/pfx/drive_c/users/steamuser/Application Data/SEGA" 2>>Debug.txt && echo "Pass" || echo "failed"
+elif [ ! -d "/home/deck/.local/share/Steam/steamapps/compatdata/1868180/pfx/drive_c/users/steamuser/Application Data/SEGA/EOHD" ] || [ ! -d "/home/deck/.local/share/Steam/steamapps/compatdata/1868170/pfx/drive_c/users/steamuser/Application Data/SEGA/EO2HD/" ] ; then
+    echo "$now: Directory Missing" >> Debug.txt
 else
-    echo "No Etrian HD Save File Found"
+    echo "$now: Generic Error" >> Debug.txt
 fi
